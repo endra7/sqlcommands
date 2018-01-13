@@ -32,4 +32,48 @@ ADDING DATA TO A TABLE:
 
 SELECT : SELECT * FROM <table_name>;
 
+INDEXING:
+
+CREATING AN INDEX : 
+	1. ALTER TABLE <table_name> ADD INDEX(<col_name>(20));
+				OR
+	2. CREATE INDEX <col_name> ON <table_name>(<col_name>(20));
+				OR
+	3. Best way is to incorporate index during creation of the table
+		Eg: CREATE TABLE <table_name> (
+			param1 VARCHAR(128),
+			param2 SMALLINT,
+			INDEX(param1(20,
+			INDEX(param2)) ENGINE MyISAM;
+
+FULLINDEX is used for superfast searches for entire coloumn of text,varchar or char.
+	Eg. ALTER TABLE <table_name> ADD FULLINDEX(param1,param2);
+
+
+SELECT : SELECT <something> FROM <table_name>;
+	 SELECT COUNT(*) FROM <table_name>;
+	 SELECT DISTINCT param1 FROM <table_name>;
+
+DELETE : DELETE FROM <table_name> WHERE param1="something";
+
+MATCH..AGAINST : Only used for column with FULLINDEX property;
+		Eg.SELECT author,title,year FROM classics WHERE MATCH(author,title) AGAINST ('+charles -DARWIN IN BOOLEAN MODE);
+
+UPDATE..SET : UPDATE <table_name> SET <col1> = 'something' WHERE <col1> = 'someotherthing'>;
+
+ORDER BY : Eg. SELECT param1,param2 FROM <table_name> ORDER BY param2 DESC;
+
+GROUP BY : Eg. SELECT param1,count(param2) FROM <table_name> GROUP BY param1;
+
+JOINING TABLE : 
+	SELECT :
+		SELECT name,author,title FROM customer,classics WHERE customer.isbn=classics.isbn;
+					OR
+		SELECT name,author,title FROM customer NATURAL JOIN classics;
+JOIN..ON : 
+	SELECT name,author,title FROM customers JOIN classic ON customer.isbn=classics.isbn;
+
+
+
+
 		

@@ -1,0 +1,35 @@
+CREATE DATABASE :
+		 CREATE DATABASE <database_name>;
+		 USE <database_name>;
+
+CREATE USER : 
+		GRANT ALL PRIVILAGES ON <database_name>.* TO '<username>'@'localhost' IDENTIFIED BY '<password'>;
+		Imp: <database_name>.* ===> Only given db and all its object
+		     <database_name>.object ===> Only given db and given object
+
+CREATE TABLE : 
+		CREATE TABLE <table_name> (
+		param1 INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+		param2 VARCHAR(120),
+		param4 DATE NOT NULL ) ENGINE MyISAM;
+
+DESCRIBE <table_name> : Shows table structures
+
+
+ALTER TABLE:
+		
+//Adding new coloumn : ALTER TABLE <table_name> ADD param1 INT UNSIGNED NOT NULL AUTO_INCREMENT KEY;
+//Removing coloumn   : ALTER TABLE <table_name> DROP param1;
+//Renaming table     : ALTER TABLE <pre_name> RENAME <new_name>;
+//Changing datatype  : ALTER TABLE <table_name> MODIFY param1 <new datatype>;
+//Renaming Coloumn   : ALTER TABLE <table_name> CHANGE <prev_col_name> <new_col_name> <datatype and properties>;
+
+
+DROP TABLE : DROP TABLE <table_name>;
+
+ADDING DATA TO A TABLE:
+	INSERT INTO <table_name>(param1,param2,param3) VALUES (" "," "," ");
+
+SELECT : SELECT * FROM <table_name>;
+
+		
